@@ -1,0 +1,12 @@
+ROLL UP
+Select count([D12BGR5].[dbo].[policy_holder].policy_holder_id),[D12BGR5].[dbo].[policy].policy_type from [D12BGR5].[dbo].[policy_holder] inner join [D12BGR5].[dbo].[policy] on [D12BGR5].[dbo].[policy_holder].policy_id=[D12BGR5].[dbo].[policy].policy_id group by [D12BGR5].[dbo].[policy].policy_type;
+
+SLICE
+select count([D12BGR5].[dbo].[policy_holder].policy_holder_id)as policies_sold,[D12BGR5].[dbo].[employee].emp_id,[D12BGR5].[dbo].[employee].emp_firstname from [D12BGR5].[dbo].[policy_holder] inner join [D12BGR5].[dbo].[employee] on [D12BGR5].[dbo].[policy_holder].emp_id=[D12BGR5].[dbo].[employee].emp_id where [D12BGR5].[dbo].[employee].emp_firstname='JANE' group by [D12BGR5].[dbo].[employee].emp_id,[D12BGR5].[dbo].[employee].emp_firstname; 
+
+
+DICE
+select count([D12BGR5].[dbo].[policy_holder].policy_holder_id)as policy_bought,[D12BGR5].[dbo].[policy].policy_type,[D12BGR5].[dbo].[policy_holder].cust_id from [D12BGR5].[dbo].[policy_holder] inner join [D12BGR5].[dbo].[policy] on [D12BGR5].[dbo].[policy_holder].policy_id=[D12BGR5].[dbo].[policy].policy_id where [D12BGR5].[dbo].[policy_holder].cust_id=113 group by [D12BGR5].[dbo].[policy].policy_type,[D12BGR5].[dbo].[policy_holder].cust_id;
+
+DRILL DOWN
+SELECT COUNT([D12BGR5].[dbo].[policy_holder].policy_holder_id)as policies_sold_in_term,[D12BGR5].[dbo].[policy_holder].policy_id,[D12BGR5].[dbo].[policy].policy_name,[D12BGR5].[dbo].[policy_holder].term_taken from [D12BGR5].[dbo].[policy_holder] inner join [D12BGR5].[dbo].[policy] on [D12BGR5].[dbo].[policy_holder].policy_id=[D12BGR5].[dbo].[policy].policy_id group by [D12BGR5].[dbo].[policy_holder].term_taken,[D12BGR5].[dbo].[policy_holder].policy_id,[D12BGR5].[dbo].[policy].policy_name;
